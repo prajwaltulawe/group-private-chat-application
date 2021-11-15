@@ -4,7 +4,7 @@ const port = process.env.PORT || 8080;
 
 const io = require('socket.io')( process.env.PORT || 8000, {   // SOCKET PORT
   cors: {                                 // CROSS ORIGIN PERMISSION FOR CLIENT ADDRESS
-    origin: ['http://localhost:8080'],    
+    origin: ['https://group-private-chat-application.herokuapp.com/'],    
   },
 });
 
