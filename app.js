@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
 
-const io = require('socket.io')(8000, {   // SOCKET PORT
+const io = require('socket.io')( process.env.PORT || 8000, {   // SOCKET PORT
   cors: {                                 // CROSS ORIGIN PERMISSION FOR CLIENT ADDRESS
     origin: ['http://localhost:8080'],    
   },
