@@ -1,4 +1,4 @@
-const socket = io('http://localhost:8000/');    // ESTABLISHING CONNECTION WITH SERVER
+const socket = io();    // ESTABLISHING CONNECTION WITH SERVER
 
 const message_input_element = document.getElementsByClassName("message-input")[0];   //  GETTING MESSAGE FROM INPUT FIELD
 const message_cointainer = document.querySelector(".messages"); //  SELECTION OF COINTAINER IN WHICH PUBLIC NOTIFICATION AND MESSEGES WILL BE PUSHED

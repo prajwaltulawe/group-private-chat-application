@@ -1,14 +1,14 @@
 const express = require('express');
-const app = express();
-const port = process.env.PORT || 8080;
+const socketIO = require('socket.io');
 
-const io = require('socket.io')( process.env.PORT || 8000, {   // SOCKET PORT
-  cors: {                                 // CROSS ORIGIN PERMISSION FOR CLIENT ADDRESS
-    origin: ['https://group-private-chat-application.herokuapp.com/'],    
-  },
-});
+const PORT = process.env.PORT || 8080;
 
-app.use(express.static('public'));
+const server = express()
+  .use(express.static('public'))
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+const io = socketIO(server);
+
 
 // DECLARING ARRAY OF users
 const users = {};
@@ -39,10 +39,3 @@ io.on('connection', socket =>{
   });
 
   });
-
-
-  app.listen(port, ()=>{
-    console.log(`App running on ${port}`);
-  })
-  
-  
