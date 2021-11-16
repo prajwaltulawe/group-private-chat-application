@@ -113,7 +113,7 @@ var current_user = ( current_userid ) => {
 
         var all_message_cointainers = document.querySelectorAll(".messages");
         all_message_cointainers.forEach(element => {
-            element.setAttribute('style', `visibility: collapse`);
+            element.setAttribute('style', `display: none`);
         });
 
         var clicked_user = document.getElementById( "public_messages" );
@@ -121,7 +121,7 @@ var current_user = ( current_userid ) => {
         
         var to_send_buttons = document.querySelectorAll(".send_button");
         to_send_buttons.forEach(element => {
-            element.setAttribute('style', `visibility: collapse`);
+            element.setAttribute('style', `display: none`);
         });
 
         const to_send = document.getElementById('public_message_send');
@@ -134,7 +134,7 @@ var current_user = ( current_userid ) => {
         
         var all_message_cointainers = document.querySelectorAll(".messages");
         all_message_cointainers.forEach(element => {
-            element.setAttribute('style', `visibility: collapse`);
+            element.setAttribute('style', `display: none`);
         });
 
         var clicked_user = document.querySelectorAll(`[id='${current_userid}']`)[1];
@@ -142,7 +142,7 @@ var current_user = ( current_userid ) => {
 
         var send_button = document.querySelectorAll(".send_button");
         send_button.forEach(element =>{
-            element.setAttribute('style', `visibility: none`);
+            element.setAttribute('style', `display: none`);
         });
 
         var active_button = document.querySelectorAll(`[id='${current_userid}']`)[2];
@@ -158,7 +158,7 @@ var current_user = ( current_userid ) => {
 
         var all_message_cointainers = document.querySelectorAll(".messages");
         all_message_cointainers.forEach(element => {
-            element.setAttribute('style', `visibility: collapse`);
+            element.setAttribute('style', `display: none`);
         });
         
         var clicked_user = document.querySelectorAll(`[id='${current_userid}']`)[1];
@@ -177,7 +177,7 @@ var current_user = ( current_userid ) => {
 
         var send_button = document.querySelectorAll(".send_button");
         send_button.forEach(element =>{
-            element.setAttribute('style', `visibility: collapse`);
+            element.setAttribute('style', `display: none`);
         });
 
         var active_button = document.querySelectorAll(`[id='${current_userid}']`)[2];
