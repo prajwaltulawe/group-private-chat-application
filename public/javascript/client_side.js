@@ -142,7 +142,7 @@ var current_user = ( current_userid ) => {
 
         var send_button = document.querySelectorAll(".send_button");
         send_button.forEach(element =>{
-            element.setAttribute('style', `visibility: collapse`);
+            element.setAttribute('style', `visibility: none`);
         });
 
         var active_button = document.querySelectorAll(`[id='${current_userid}']`)[2];
