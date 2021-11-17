@@ -220,10 +220,10 @@ body{
     padding-bottom: 3%;
     visibility: collapse;
 }
-
 #public_messages{
+    display: inline-block;
     visibility: visible;
-}
+} 
 
 .message{
     min-width: 24%;

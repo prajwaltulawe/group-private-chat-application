@@ -32,7 +32,18 @@ const append = ( data, position) =>{
         spansection.innerText = `${data.left_user_name} left the chat.`;
         var delete_left_user = "";
         var delete_left_user = document.getElementById(data.left_user_id);
-        delete_left_user.remove();
+        var delete_left_user = document.querySelectorAll(`[id='${data.left_user_id}']`)
+        delete_left_user.forEach(element => {
+            element.remove();
+        });
+
+        var clicked_user = document.getElementById( "public_messages" );
+        clicked_user.style.display = "inline-block";   
+        clicked_user.style.visibility = "visible";  
+
+        const to_send = document.getElementById('public_message_send');
+        to_send.style.display = "inline-block";
+        to_send.style.visibility = "visible";   
     }
     
     // APPENDING ALL THE EVENTS IN MESSAGE COINTAINER
@@ -117,6 +128,7 @@ var current_user = ( current_userid ) => {
         });
 
         var clicked_user = document.getElementById( "public_messages" );
+        clicked_user.style.display = "inline-block";   
         clicked_user.style.visibility = "visible";   
         
         var to_send_buttons = document.querySelectorAll(".send_button");
@@ -125,8 +137,8 @@ var current_user = ( current_userid ) => {
         });
 
         const to_send = document.getElementById('public_message_send');
-        to_send.style.visibility = "visible";
-
+        to_send.style.display = "inline-block";
+        to_send.style.visibility = "visible";   
     } 
 
     // CHECKING IF CURRENT ACTIVE USER HAS IT'S COINTAINER AND SETTING IT'S VISIBILITY MODE 
@@ -138,15 +150,32 @@ var current_user = ( current_userid ) => {
         });
 
         var clicked_user = document.querySelectorAll(`[id='${current_userid}']`)[1];
-        clicked_user.style.visibility = "visible";
+        clicked_user.style.display = "inline-block";
+        clicked_user.style.visibility = "visible";   
 
         var send_button = document.querySelectorAll(".send_button");
         send_button.forEach(element =>{
-            element.setAttribute('style', `display: none`);
+        element.setAttribute('style', `display: none`);
         });
+    
+        if ( document.querySelectorAll(`[id='${current_userid}']`).length > 2 ) {
+            var active_button = document.querySelectorAll(`[id='${current_userid}']`)[2];
+            active_button.style.display = "inline-block";
+            active_button.style.visibility = "visible";   
+        }
+        else {
+            var create_button = document.createElement('button');
+            create_button.className += "send_button";
+            create_button.setAttribute('id', current_userid );
+            create_button.setAttribute("onclick",`send_message(this.id)`)
 
-        var active_button = document.querySelectorAll(`[id='${current_userid}']`)[2];
-        active_button.style.visibility = "visible";
+            const send_logo = document.createElement('img');
+            send_logo.setAttribute('src', 'css/icon.png');
+            
+            create_button.appendChild(send_logo);
+            message_input_element.append(create_button);
+        }
+    
     }
 
     // CREATING A COINTAINER FOR ACTIVE USER AND SETTING IT'S VISIBILITY MODE 
@@ -162,7 +191,8 @@ var current_user = ( current_userid ) => {
         });
         
         var clicked_user = document.querySelectorAll(`[id='${current_userid}']`)[1];
-        clicked_user.style.visibility = "visible";
+        clicked_user.style.display = "inline-block";
+        clicked_user.style.visibility = "visible";   
 
         var create_button = document.createElement('button');
         create_button.className += "send_button";
@@ -181,7 +211,8 @@ var current_user = ( current_userid ) => {
         });
 
         var active_button = document.querySelectorAll(`[id='${current_userid}']`)[2];
-        active_button.style.visibility = "visible";
+        active_button.style.display = "inline-block";
+        clicked_user.style.visibility = "visible";   
 
     }
 
@@ -194,8 +225,6 @@ var current_user = ( current_userid ) => {
         var current_user_element = document.getElementById( current_userid ).childNodes[1];
         current_user_element.style.boxShadow = "rgba(43, 0, 255, 0.22) 0px 0px 16px";
     }
-
-
 
 }
 
