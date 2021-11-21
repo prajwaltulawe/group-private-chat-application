@@ -32,10 +32,7 @@ const append = ( data, position) =>{
         spansection.innerText = `${data.left_user_name} left the chat.`;
         var delete_left_user = "";
         var delete_left_user = document.getElementById(data.left_user_id);
-        var delete_left_user = document.querySelectorAll(`[id='${data.left_user_id}']`)
-        delete_left_user.forEach(element => {
-            element.remove();
-        });
+        delete_left_user.remove();
 
         var clicked_user = document.getElementById( "public_messages" );
         clicked_user.style.display = "inline-block";   

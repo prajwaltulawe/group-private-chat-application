@@ -9,7 +9,6 @@ const server = express()
 
 const io = socketIO(server);
 
-
 // DECLARING ARRAY OF users
 const users = {};
 
