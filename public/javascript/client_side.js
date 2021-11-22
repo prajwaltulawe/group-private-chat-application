@@ -62,9 +62,6 @@ const append = ( data, position) =>{
         client.className += "client";
         client.setAttribute('id', `${data.joined_user_id}`);
         
-        const client_image = document.createElement('div');
-        client_image.className += "client-image";
-        
         const client_name = document.createElement('div');
         client_name.className += "client-name";
         
@@ -74,7 +71,6 @@ const append = ( data, position) =>{
         
         client_name.appendChild(spanname);
         
-        client.appendChild(client_image);
         client.appendChild(client_name);
         
         reciptants.append(client);
@@ -243,9 +239,6 @@ const active_users_display = ( users, my_id ) =>{
         client.className += "client";
         client.setAttribute('id', key);
         
-        const client_image = document.createElement('div');
-        client_image.className += "client-image";
-        
         const client_name = document.createElement('div');
         client_name.className += "client-name";
         
@@ -255,7 +248,6 @@ const active_users_display = ( users, my_id ) =>{
         
         client_name.appendChild(spanname);
         
-        client.appendChild(client_image);
         client.appendChild(client_name);
         
         reciptants.append(client);
