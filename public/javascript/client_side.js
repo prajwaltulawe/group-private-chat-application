@@ -34,7 +34,8 @@ const append = ( data, position) =>{
         var delete_left_user = document.querySelectorAll(`[id='${data.left_user_id}']`);
         delete_left_user[0].remove();
         delete_left_user[1].remove();
-        delete_left_user[delete_left_user.length].remove();
+        var last_cointainer = delete_left_user.length-1;
+        delete_left_user[last_cointainer].remove();
 
         delete_left_user.forEach(element =>{
             element.remove();
