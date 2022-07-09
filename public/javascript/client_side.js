@@ -23,7 +23,7 @@ const append = ( data, position) =>{
     // DISPLAYING MESSAGE RECEIVED
     else if ( position == 'received') {
         spansection.innerText = data.message_received ;
-        messageElement.setAttribute('id', `${data.sender_id}`);
+        messageElement.setAttribute('id', `${data.sender_id}`+ data.message_received);
         messageElement.style.setProperty("--sender_name",`"${data.sender_name}"` );
     } 
 
@@ -91,6 +91,18 @@ function pvt_message( data, position){
             pvt_messages_block.className += "messages";
             pvt_messages_block.setAttribute('id', data.sender_id );
             messages_block.prepend(pvt_messages_block);
+            
+            var create_button = document.createElement('button');
+            create_button.className += "send_button";
+            create_button.setAttribute('id', data.sender_id );
+            create_button.setAttribute("onclick",`send_message(this.id)`)
+            create_button.setAttribute('style', `visibility: collapse`);
+
+            const send_logo = document.createElement('img');
+            send_logo.setAttribute('src', 'css/icon.png');
+            
+            create_button.appendChild(send_logo);
+            message_input_element.append(create_button);
 
             var message_cointainer = document.querySelectorAll(`[id='${data.sender_id}']`)[1];
             message_cointainer.append(messageElement);
@@ -107,7 +119,18 @@ function pvt_message( data, position){
 
 // SELECT USER/ GROUP TO CHAT
 var current_user = ( current_userid ) => {
-    
+
+    var clicked_user_cointainer = 0;
+
+    // CHECK WHETHER IT IS A MESSAGE COINTAINER
+    var messages_cointainers = document.querySelectorAll(".messages");;
+    messages_cointainers.forEach(element => {
+        if (element.id == current_userid) {
+            clicked_user_cointainer = 1;
+            return;    
+        } 
+    });
+
     // CHECKING IF CURRENT ACTIVE USER IS PUBLIC AND SETTING IT'S VISIBILITY MODE 
     if ( current_userid == "public" ) {
 
@@ -130,8 +153,10 @@ var current_user = ( current_userid ) => {
     } 
 
     // CHECKING IF CURRENT ACTIVE USER HAS IT'S COINTAINER AND SETTING IT'S VISIBILITY MODE 
-    else if ( document.querySelectorAll(`[id='${current_userid}']`).length > 1 ) {
-        
+    // else if ( document.querySelectorAll(`[id='${current_userid}']`).length > 1 ) {
+
+    else if ( clicked_user_cointainer ) {
+
         var all_message_cointainers = document.querySelectorAll(".messages");
         all_message_cointainers.forEach(element => {
             element.setAttribute('style', `visibility: collapse`);
@@ -145,8 +170,8 @@ var current_user = ( current_userid ) => {
             element.setAttribute('style', `visibility: collapse`);
         });
 
-        var active_button = document.querySelectorAll(`[id='${current_userid}']`)[2];
-        active_button.style.visibility = "visible";
+        var active_user_send_button = document.querySelectorAll(`[id='${current_userid}']`).length - 1; 
+        var active_button = document.querySelectorAll(`[id='${current_userid}']`)[active_user_send_button].style.visibility = "visible";
     }
 
     // CREATING A COINTAINER FOR ACTIVE USER AND SETTING IT'S VISIBILITY MODE 
@@ -194,9 +219,6 @@ var current_user = ( current_userid ) => {
         var current_user_element = document.getElementById( current_userid ).childNodes[1];
         current_user_element.style.boxShadow = "rgba(43, 0, 255, 0.22) 0px 0px 16px";
     }
-
-
-
 }
 
 // FUNCTION TO DISPLAY PREVIOUSLY ACTIVE USERS IN NEW USER'S ACTIVE LIST 
@@ -238,6 +260,7 @@ function public_chat(){
 
 // ACCEPTING NEW USERS NAME AND CHECKING VALIDATIONS
 const user_name = prompt("Enter Your Name..! ( Max. 20 character. )"); // SIGN UP FOR NEW USER
+// user_name = "PRAJWAL";
 if ( user_name )    {
     if ( user_name.length > 20 ){
         user_name = prompt("Name must contain less than 20 characters..!")
