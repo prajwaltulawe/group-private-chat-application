@@ -140,7 +140,7 @@ var current_user = ( current_userid ) => {
         });
 
         var clicked_user = document.getElementById( "public_messages" );
-        clicked_user.style.visibility = "visible";   
+        clicked_user.style.display = "block";   
         
         var to_send_buttons = document.querySelectorAll(".send_button");
         to_send_buttons.forEach(element => {
@@ -148,7 +148,7 @@ var current_user = ( current_userid ) => {
         });
 
         const to_send = document.getElementById('public_message_send');
-        to_send.style.visibility = "visible";
+        to_send.style.display = "block";
 
     } 
 
@@ -163,7 +163,7 @@ var current_user = ( current_userid ) => {
         });
 
         var clicked_user = document.querySelectorAll(`[id='${current_userid}']`)[1];
-        clicked_user.style.visibility = "visible";
+        clicked_user.style.display = "block";
 
         var send_button = document.querySelectorAll(".send_button");
         send_button.forEach(element =>{
@@ -171,7 +171,7 @@ var current_user = ( current_userid ) => {
         });
 
         var active_user_send_button = document.querySelectorAll(`[id='${current_userid}']`).length - 1; 
-        var active_button = document.querySelectorAll(`[id='${current_userid}']`)[active_user_send_button].style.visibility = "visible";
+        var active_button = document.querySelectorAll(`[id='${current_userid}']`)[active_user_send_button].style.display = "block";
     }
 
     // CREATING A COINTAINER FOR ACTIVE USER AND SETTING IT'S VISIBILITY MODE 
@@ -187,7 +187,7 @@ var current_user = ( current_userid ) => {
         });
         
         var clicked_user = document.querySelectorAll(`[id='${current_userid}']`)[1];
-        clicked_user.style.visibility = "visible";
+        clicked_user.style.display = "block";
 
         var create_button = document.createElement('button');
         create_button.className += "send_button";
@@ -206,7 +206,7 @@ var current_user = ( current_userid ) => {
         });
 
         var active_button = document.querySelectorAll(`[id='${current_userid}']`)[2];
-        active_button.style.visibility = "visible";
+        active_button.style.display = "block";
 
     }
 

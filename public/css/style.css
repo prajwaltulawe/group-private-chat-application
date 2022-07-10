@@ -210,11 +210,11 @@
     height: calc(100% - 20%);
     scrollbar-width: none;
     padding-bottom: 3%;
-    visibility: collapse;
+    display : none;
 }
 
 #public_messages{
-    visibility: visible;
+    display: block;
 }
 
 .message{
@@ -313,6 +313,10 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+input, button:focus {
+    outline: none;
+}
+
 .message-input button{
     pointer-events: auto;
     cursor: pointer;
@@ -333,5 +337,6 @@
 }
 
 #public_message_send{
-    visibility: visible;
+    display: block;
 }
+
