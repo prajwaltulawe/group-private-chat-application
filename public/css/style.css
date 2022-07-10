@@ -6,17 +6,9 @@
 :root {
     --sender_name: "";
   }
-*{
-    margin: 0;
-    padding: 0;
-}
-
-body{
-    height: 100vh;
-}
 
 /* NAVBAR */
-    
+
 .navbar{
     width: 90%;
     display: flex;
@@ -46,6 +38,7 @@ body{
     width: 16%;
     display: flex;
     justify-content: flex-end;
+    font-size: 1.2rem;
     font-family: 'Raleway', sans-serif;
     letter-spacing: 1px;
 }
@@ -89,11 +82,6 @@ body{
     transition: all 0.2s;
 }
 
-.render-animation a::after{
-    content: "Leave Chat";
-    font-size: 1.3rem;
-}
-
 .render-animation a:hover{
     letter-spacing: 2px;
     color: white;
@@ -110,59 +98,6 @@ body{
 
 .render-animation:hover::before {
 	transform: translate3d(100%,0,0);
-}
-
-
-@media only screen and (max-width: 1280px) {
-    .render-animation a::after{
-        content: "Leave";
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .user-name{
-        padding: 2% 3%;
-        font-size: 2.3vh;
-    }
-
-    .render-animation a::after{
-        font-size: 2vh;
-        padding: 2% 3%;
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    .user-name{
-        width: 80%;
-        border-radius: .7rem;
-    }
-
-    .leave-chat{
-        width: 20%;
-        border-radius: .7rem;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .user-name{
-        padding: 2% 3%;
-        font-size: 2vh;
-    }
-
-    .render-animation a::after{
-        font-size: 1.7vh;
-        padding: 2% 3%;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .user-name{
-        font-size: 1.5vh;
-    }
-
-    .render-animation a::after{
-        font-size: 1.3vh;
-    }
 }
 
 /* BODY */
@@ -208,16 +143,27 @@ body{
     height: 100px;
     align-items: center;
     justify-content: center;
+    padding-left: 2%;
+}
+
+.client-image{
+    width: 80px;
+    height: 80px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    z-index: 1;
 }
 
 .client-name{
     height: 60px;
-    width: 80%  ;
+    width: 75%  ;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     font-size: 1.3rem;
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
+    left: -5%;
     display: flex;
     align-items: center;
 }
@@ -225,7 +171,7 @@ body{
 .client-name span{
     overflow: hidden;
     text-overflow: ellipsis;
-    padding-left: 15%;
+    padding-left: 12%;
     font-family: 'Source Sans Pro', sans-serif;
     letter-spacing: 1px;
     transition: all 0.2s;
@@ -242,7 +188,6 @@ body{
     font-family: 'Source Sans Pro', sans-serif;
     letter-spacing: 5px;
     transition: all 0.2s;
-    padding-left: 0;
 }
 
 #public:hover{
@@ -267,13 +212,13 @@ body{
     padding-bottom: 3%;
     visibility: collapse;
 }
+
 #public_messages{
-    display: inline-block;
     visibility: visible;
-} 
+}
 
 .message{
-    min-width: 25%;
+    min-width: 24%;
     max-width: 45%;
     height: auto;
     margin: 4% 2% 0% 2%;
@@ -290,7 +235,7 @@ body{
     float: right;
     clear: both;
     background-color: #ffffff;
-    padding: 10px 2vh 10px 1vh;
+    padding: 10px 23px 10px 0px;
     border-radius: 1em 1em 0em 1em;    
 }
 
@@ -303,7 +248,7 @@ body{
     float: left;
     clear: both;
     background-color: #ffffff;
-    padding: 10px 1vh 10px 2vh;
+    padding: 10px 0px 10px 23px;
     border-radius: 1em 1em 1em 0em;
     position: relative;
 }
@@ -312,7 +257,7 @@ body{
     position: absolute;
     content: var(--sender_name);
     top: -25px;
-    left: 3vh;
+    left: 8%;
     font-size: 0.9rem;
     color: #00000096;
 }
@@ -355,7 +300,7 @@ body{
     position: sticky;
     bottom: 0;
     background-color: white;
-    margin: auto 0px 1rem 2%;
+    margin: 0 0px 0 2%;
 }
 
 .message-input input{
@@ -389,69 +334,4 @@ body{
 
 #public_message_send{
     visibility: visible;
-}
-
-@media only screen and (max-width: 1500px) {
-    .message{
-        max-width: 40%;
-    }
-}
-
-@media only screen and (max-width: 1280px) {
-    .message{
-        max-width: 55%;
-        box-shadow: rgba(0, 0, 0, 0.11) 0px 4px 12px;
-    }
-    
-    .client-name{
-        box-shadow: rgba(0, 0, 0, 0.11) 0px 4px 12px;
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    .message{
-        max-width: 65%;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-        margin: 6% 2% 0% 2%;
-    }
-    .joined{
-        min-width: 35%;
-        margin: 18px auto;
-    }
-    .client-name{
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    }
-}
-
-@media only screen and (max-width: 900px) {
-    .message{
-        max-width: 70%;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .message{
-        margin: 10% 2% 0% 2%;
-    }
-    .joined{
-        margin: 18px auto;
-    }
-    .sended{  margin: 6% 2% 0% 2%;  }
-}
-
-@media only screen and (max-width: 700px) {
-    .sended{  
-        margin: 6% 2% 0% 2%;  
-    }
-}
-
-/* FOOTER */
-.footer{
-    display: block;
-    width: 90%;
-    margin: auto;
-    padding: 1% 0 1% 0;
-    font-family: 'IBM Plex Sans Arabic', sans-serif;
-    letter-spacing: 2px;
-    border-radius: 0 0 1em 1em; 
 }
